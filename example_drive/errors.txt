@@ -1,0 +1,4 @@
+/home/lamberev/local/PyMPSDynamics_GPU_v1.1_dev/MPSDynamics/compute_lineshape_from_dcf.py:98: ComplexWarning: Casting complex values to real discards the imaginary part
+  spectrum[i, 1] = intensity
+/home/lamberev/local/PyMPSDynamics_GPU_v1.1_dev/MPSDynamics/compute_lineshape_from_dcf.py:98: ComplexWarning: Casting complex values to real discards the imaginary part
+  spectrum[i, 1] = intensity

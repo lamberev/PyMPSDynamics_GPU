@@ -1,0 +1,35 @@
+#!/bin/sh -l
+#SBATCH -J nonadiabatic_dynamics_gpu
+#SBATCH -e errors.txt
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --gpus=1
+#SBATCH --time=14-00:00:00
+#SBATCH --mem=2G
+#SBATCH --priority=2
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=lamberev@oregonstate.edu
+#SBATCH -p preempt-gpu.q
+#SBATCH -A zuehlsdorff
+
+
+# Activate the correct conda environment
+source /opt/ohpc/pub/apps/anaconda/3.12/etc/profile.d/conda.sh
+conda activate MPSDynamics
+
+# Redefine $LD_LIBRARY_PATH to avoid conflicts with a conda-installed CUDA toolkit
+# This ensures that the CUDA from 'module load cuda' is used.
+export LD_LIBRARY_PATH=$(echo $LD_LIBRARY_PATH | tr ':' '\n' | grep -v '.conda' | paste -sd ':' -)
+
+echo "Final PATH: $PATH"
+echo "Final LD_LIBRARY_PATH: $LD_LIBRARY_PATH"
+which python
+
+# Set thread count for libraries like numpy/scipy that use OpenMP
+export OMP_NUM_THREADS="2"
+
+# For GPU profiling, you can use:
+# nsys profile python -u nonadiabatic_dynamics_gpu.py > nonadiabatic_dynamics_gpu.out
+#
+# But for a regular run:
+python -u nonadiabatic_dynamics_gpu.py > nonadiabatic_dynamics_gpu.out

@@ -1,0 +1,9 @@
+[2025-08-15 13:06:56.601788] => RUN <emission> START
+	 name : example: emission
+	 machine : local
+	 method : TDVP1
+	 dt = 1.0
+	 tmax = 1.0
+	 parameters : energy_1 = 0.12163935263966656, energy_2 = 0.12898921335980593, coupling = 0.0, mu_01 = 1.0, mu_02 = 0.0, temp = 0, chain_length = 55, num_fock = 13
+	 observables : 
+	 convparams : 30

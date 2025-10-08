@@ -1,0 +1,9 @@
+[2025-08-11 17:22:15.820519] => RUN <absorption> START
+	 name : example: absorption
+	 machine : local
+	 method : TDVP1
+	 dt = 10.0
+	 tmax = 100.0
+	 parameters : psi = [0.65338211+0.j 0.29966882+0.j 0.69519092+0.j], energy_1 = 0.1875421749387275, energy_2 = 0.19599977444902, coupling = -0.00023289220031456672, dipole_moment_1 = 0.43105974279098397, dipole_moment_2 = 0.9398599634992078, temp = 300, chain_length = 10, num_fock = 5
+	 observables : 
+	 convparams : 10
